@@ -1,14 +1,9 @@
-block = require('./block').block;
-var http = require('http');
+block = require("./block").block;
 block = new block(1,2,3,4,5);
-/*
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write("<h1>The Block Chain Part 1</h1>");
-  res.write("<br/>");
-  //block = block();
-  res.write("The date and time are currently: " + block(1,1,1,1,1).data);
-  res.end();
-}).listen(8080);
-*/
-console.log(block.hash);
+console.log("Testing block hash : " + block.hash);
+// end first testing part
+create_genesis_block = require("./create_genesis_block").create_genesis_block;
+console.log("Testing 1st block hash : " + create_genesis_block.hash_block());
+// end 2nd testing part
+next_block = require("./next_block").next_block;
+console.log("Testing next block hash : " + next_block(create_genesis_block).hash_block());

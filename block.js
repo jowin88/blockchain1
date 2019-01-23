@@ -1,7 +1,6 @@
-sha256 = require("js-sha256");
-class Block {
-  constructor(self, index, timestamp, data, previous_hash) {
-    this.self = self;
+sha256 = require("js-sha256");//npm install js-sha256
+exports.block = class Block {
+  constructor(index, timestamp, data, previous_hash) {
 	this.index = index;
 	this.timestamp = timestamp;
 	this.data = data;
@@ -19,5 +18,4 @@ class Block {
 	);
 	return this.sha.hex();
   }
-}
-exports.block = Block;
+};
